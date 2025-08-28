@@ -1,0 +1,140 @@
+/* Add this CSS to your main CSS file (index.css or App.css) */
+
+/* Global overflow prevention */
+html {
+  overflow-x: hidden;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure all elements use border-box sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Fix for sections with background decorations */
+section {
+  position: relative;
+  overflow-x: hidden !important;
+  max-width: 100vw;
+}
+
+/* Fix for absolute positioned background elements */
+.absolute.inset-0 {
+  max-width: 100vw !important;
+  overflow: hidden !important;
+}
+
+/* Fix for grid layouts that might overflow */
+.grid {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Ensure containers don't exceed viewport */
+.container, .max-w-7xl, .max-w-6xl, .max-w-5xl, .max-w-4xl, .max-w-3xl {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Fix for any floating or absolute elements */
+.relative, .absolute, .fixed {
+  max-width: 100vw;
+}
+
+/* Prevent text from causing overflow */
+h1, h2, h3, h4, h5, h6, p, span, div {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Fix for images and media */
+img, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Specific fixes for identified problematic elements */
+
+/* Fix for hero floating particles container */
+.absolute.inset-0.overflow-hidden.pointer-events-none {
+  max-width: 100vw !important;
+  left: 0 !important;
+  right: 0 !important;
+}
+
+/* Fix for inline-block elements that might extend */
+.relative.inline-block {
+  max-width: 100%;
+  word-break: break-word;
+}
+
+/* Fix for background decoration containers */
+.absolute.inset-0.opacity-30,
+.absolute.inset-0.opacity-20 {
+  max-width: 100vw !important;
+  left: 0 !important;
+  right: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Fix for transform elements that might move outside viewport */
+.transform {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Fix for group elements */
+.relative.group {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Ensure padding doesn't cause overflow */
+.p-4, .p-6, .p-8, .px-4, .px-6, .px-8 {
+  box-sizing: border-box;
+}
+
+/* Mobile-specific fixes */
+@media (max-width: 768px) {
+  * {
+    max-width: 100vw !important;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Ensure no element extends beyond mobile viewport */
+  .absolute, .relative, .fixed {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+}
+
+/* Additional safety net for any remaining overflow */
+#root, #__next, .App {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Fix for any CSS animations that might cause overflow */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg) translateX(0); }
+  33% { transform: translateY(-10px) rotate(120deg) translateX(0); }
+  66% { transform: translateY(10px) rotate(240deg) translateX(0); }
+}
+
+/* Ensure animated elements stay within bounds */
+.animate-float, .animate-pulse, .animate-bounce {
+  max-width: 100%;
+  overflow: hidden;
+}
