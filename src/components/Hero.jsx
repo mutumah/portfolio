@@ -10,7 +10,7 @@ const Hero = () => {
     'Full Stack Developer',
     'React Enthusiast', 
     'Problem Solver',
-    'UI/UX Focused'
+    'UI/UX Enthusiast',
   ];
 
   // Trigger animations on mount
@@ -82,9 +82,9 @@ const Hero = () => {
   return (
     <section 
       id="home"
-      className="relative min-h-screen w-full flex flex-col items-center justify-center text-center pt-16 overflow-x-hidden max-w-full"
+      className="relative min-h-screen w-full flex flex-col items-center justify-center text-center overflow-x-hidden max-w-full"
     >
-      {/* Animated Background */}
+      {/* Seamless Background with Navbar */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-slate-900 overflow-hidden max-w-full">
         {/* Animated gradient orbs - Fixed sizes for mobile */}
         <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse max-w-full"></div>
@@ -109,7 +109,7 @@ const Hero = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 w-full">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 w-full pt-20">
         
         {/* Greeting */}
         <div className={`transform transition-all duration-1000 ${
@@ -160,7 +160,7 @@ const Hero = () => {
         <div className={`transform transition-all duration-1000 delay-1000 ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}>
-          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-12 px-4">
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-8 px-4">
             <button
               onClick={() => handleSmoothScroll('projects')}
               className="group w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-blue-800 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-blue-500/25 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-gray-900"
@@ -177,28 +177,6 @@ const Hero = () => {
             >
               Let's Connect
             </button>
-          </div>
-        </div>
-
-        {/* Social Links */}
-        <div className={`transform transition-all duration-1000 delay-1200 ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-        }`}>
-          <div className="flex gap-6 items-center justify-center mb-8">
-            {[
-              { icon: Github, href: '#', label: 'GitHub' },
-              { icon: Linkedin, href: '#', label: 'LinkedIn' },
-              { icon: Mail, href: 'mailto:your.email@example.com', label: 'Email' }
-            ].map(({ icon: Icon, href, label }) => (
-              <a
-                key={label}
-                href={href}
-                className="p-3 text-gray-400 hover:text-blue-400 hover:bg-blue-400/10 rounded-xl transition-all duration-200 hover:scale-110"
-                aria-label={label}
-              >
-                <Icon size={24} />
-              </a>
-            ))}
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ export default function Projects() {
       description: "A comprehensive full-stack e-commerce platform featuring user authentication, product catalog, shopping cart, and secure checkout process.",
       longDescription: "Built with modern technologies, this mini e-commerce app includes user registration/login, product browsing with search and filters, cart management, and order processing with MongoDB for data persistence.",
       link: "https://mini-ecommerce-frontend-tawny.vercel.app/", 
-      github: "#", // Add your GitHub link
+      github: "https://github.com/mutumah/mini-ecommerce-frontend", 
       image: ecommerceImg,
       tags: ["React", "Node.js", "MongoDB", "Express", "JWT"],
       category: "Full Stack",
@@ -26,7 +26,7 @@ export default function Projects() {
       description: "A modern recipe blog platform focused on steak and barbecue recipes with intuitive content management and responsive design.",
       longDescription: "Features a clean, modern interface for browsing recipes, detailed cooking instructions, ingredient lists, and cooking tips. Built with React for a smooth user experience.",
       link: "https://sensational-halva-49f8f2.netlify.app/", 
-      github: "#", // Add your GitHub link
+      github: "https://github.com/mutumah/mishkaki-blog", 
       image: bbqBlogImg,
       tags: ["React", "MongoDB", "CSS3", "Responsive Design"],
       category: "Frontend",
@@ -38,7 +38,7 @@ export default function Projects() {
       description: "An interactive 3D landing page showcasing creative animations and engaging visual effects for a coloring book product.",
       longDescription: "A showcase of creative web development featuring 3D animations, interactive elements, and engaging visual storytelling to create an immersive product experience.",
       link: "https://3d-coloringbook.netlify.app",
-      github: "#", // Add your GitHub link
+      github: "https://github.com/mutumah/3D-coloring-book",
       image: coloringBookImg,
       tags: ["React", "Three.js", "3D Animation", "Creative Design"],
       category: "Creative",

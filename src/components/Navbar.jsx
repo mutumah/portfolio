@@ -36,33 +36,92 @@ const Navbar = () => {
     };
   }, [isOpen]);
 
-  // Track active section based on scroll position
+  // Enhanced scroll tracking logic with debugging
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'projects', 'about', 'contact'];
-      const scrollPosition = window.scrollY + 100;
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
+      const sections = ['home', 'projects', 'skills', 'about', 'contact'];
+      const scrollPosition = window.scrollY;
+      const viewportHeight = window.innerHeight;
+      const navOffset = 100; // Navbar offset
+      
+      let closestSection = 'home';
+      let closestDistance = Infinity;
+      
+      // Debug: uncomment to see scroll data in console
+      // console.log('Scroll position:', scrollPosition);
+      
+      sections.forEach(sectionId => {
+        const element = document.getElementById(sectionId);
         if (element) {
-          const offsetTop = element.offsetTop;
-          const offsetBottom = offsetTop + element.offsetHeight;
+          const rect = element.getBoundingClientRect();
+          const elementTop = scrollPosition + rect.top;
+          const elementHeight = element.offsetHeight;
+          const elementCenter = elementTop + (elementHeight / 2);
           
-          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
-            setActiveSection(section);
-            break;
+          // Calculate distance from viewport center to element center
+          const viewportCenter = scrollPosition + (viewportHeight / 2);
+          const distanceFromCenter = Math.abs(viewportCenter - elementCenter);
+          
+          // Debug: uncomment to see section data
+          // console.log(`${sectionId}: top=${elementTop}, height=${elementHeight}, center=${elementCenter}, distance=${distanceFromCenter}`);
+          
+          // Method 1: Traditional approach - check if section is in viewport
+          const isInViewport = (scrollPosition + navOffset) >= elementTop && 
+                               (scrollPosition + navOffset) < (elementTop + elementHeight);
+          
+          // Method 2: Find the section closest to viewport center
+          if (distanceFromCenter < closestDistance) {
+            closestDistance = distanceFromCenter;
+            closestSection = sectionId;
+          }
+          
+          // Method 3: Alternative - check if more than 50% of section is visible
+          const visibleTop = Math.max(scrollPosition, elementTop);
+          const visibleBottom = Math.min(scrollPosition + viewportHeight, elementTop + elementHeight);
+          const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+          const visibilityRatio = visibleHeight / elementHeight;
+          
+          // Use the method that works best - prioritize sections that are significantly visible
+          if (visibilityRatio > 0.3) { // If more than 30% of section is visible
+            closestSection = sectionId;
           }
         }
+      });
+      
+      // Fallback: if we're at the very top, ensure home is selected
+      if (scrollPosition < 100) {
+        closestSection = 'home';
       }
+      
+      // Fallback: if we're at the very bottom, ensure contact is selected
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
+        closestSection = 'contact';
+      }
+      
+      setActiveSection(closestSection);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    // Debounce scroll events for better performance
+    let scrollTimeout;
+    const debouncedHandleScroll = () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(handleScroll, 10);
+    };
+
+    // Initial call
+    handleScroll();
+    
+    window.addEventListener('scroll', debouncedHandleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', debouncedHandleScroll);
+      clearTimeout(scrollTimeout);
+    };
   }, []);
 
   const navigationLinks = [
     { name: "Home", href: "#home" },
     { name: "Projects", href: "#projects" },
+    { name: "Skills", href: "#skills" },
     { name: "About", href: "#about" },
     { name: "Contact", href: "#contact" }
   ];
@@ -82,7 +141,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full z-50 bg-gray-900/95 backdrop-blur-md border-b border-gray-700/50 transition-all duration-300">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-sm transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between md:justify-center">
           
           {/* Desktop Links (centered) */}
@@ -115,7 +174,7 @@ const Navbar = () => {
 
           {/* Mobile Hamburger (right side) */}
           <button 
-            className="hamburger-btn md:hidden text-white ml-auto p-2 hover:bg-gray-800 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="hamburger-btn md:hidden text-white ml-auto p-2 hover:bg-white/10 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
             onClick={() => setIsOpen(true)}
             aria-label="Open navigation menu"
             aria-expanded={isOpen}

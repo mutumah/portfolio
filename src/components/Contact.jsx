@@ -95,15 +95,15 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "cliff.dev@example.com",
-      href: "mailto:cliff.dev@example.com",
+      value: "cliffmutuma12@gmail.com",
+      href: "mailto:cliffmutuma12@gmail.com",
       color: "text-blue-400",
       bgColor: "bg-blue-500/10"
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "Karuri, Kiambu County, KE",
+      value: "Nairobi, KE",
       href: null,
       color: "text-green-400",
       bgColor: "bg-green-500/10"
@@ -280,24 +280,6 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Social Links */}
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold">Follow Me</h3>
-              <div className="flex gap-4 flex-wrap">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`p-4 bg-gray-800/50 border border-gray-700/50 rounded-xl text-gray-400 ${social.color} transform hover:scale-110 transition-all duration-200 hover:shadow-lg`}
-                    aria-label={social.label}
-                  >
-                    <social.icon size={24} />
-                  </a>
-                ))}
-              </div>
-            </div>
 
             {/* Why Contact Me */}
             <div className="p-6 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-xl border border-blue-500/20 max-w-full overflow-hidden">
@@ -327,12 +309,12 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Footer */}
+        {/* divider */}
         <div className={`text-center mt-16 pt-8 border-t border-gray-700/50 transform transition-all duration-1000 delay-700 px-4 ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}>
           <p className="text-gray-400 break-words">
-            Prefer a different way to connect? Feel free to reach out through any of the channels above. 
+            Prefer a different way to connect? Feel free to reach out through any of the channels below. 
             I'm always excited to discuss new opportunities and interesting projects!
           </p>
         </div>

@@ -1,17 +1,17 @@
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 const Footer = () => {
   const socialLinks = [
-    { icon: FaGithub, href: "https://github.com/yourusername", label: "GitHub" },
-    { icon: FaLinkedin, href: "https://linkedin.com/in/yourusername", label: "LinkedIn" },
-    { icon: FaTwitter, href: "https://twitter.com/yourusername", label: "Twitter" },
-    { icon: FaEnvelope, href: "mailto:your.email@example.com", label: "Email" }
+    { icon: FaGithub, href: "https://github.com/mutumah", label: "GitHub" },
+    { icon: FaLinkedin, href: "https://www.linkedin.com/in/clifford-mutuma-186605217/", label: "LinkedIn" },
+    { icon: FaEnvelope, href: "mailto:clifftush12@gmail.com", label: "Email" }
   ];
 
   const navLinks = [
-    { href: "#about", label: "About" },
-    { href: "#skills", label: "Skills" },
+    { href: "#home", label: "Home" },
     { href: "#projects", label: "Projects" },
+    { href: "#skills", label: "Skills" }, 
+    { href: "#about", label: "About" },   
     { href: "#contact", label: "Contact" }
   ];
 

@@ -14,7 +14,7 @@ const Skills = () => {
       skills: [
         { 
           name: "React", 
-          level: 90, 
+          level: 80, 
           description: "Building dynamic UIs with hooks and modern patterns",
           icon: (
             <svg viewBox="0 0 24 24" className="w-8 h-8" fill="currentColor">
@@ -25,7 +25,7 @@ const Skills = () => {
         },
         { 
           name: "JavaScript", 
-          level: 85, 
+          level: 75, 
           description: "ES6+, async programming, and modern JS patterns",
           icon: (
             <svg viewBox="0 0 24 24" className="w-8 h-8" fill="currentColor">
@@ -36,7 +36,7 @@ const Skills = () => {
         },
         { 
           name: "HTML5", 
-          level: 95, 
+          level: 90, 
           description: "Semantic markup and modern web standards",
           icon: (
             <svg viewBox="0 0 24 24" className="w-8 h-8" fill="currentColor">
@@ -47,7 +47,7 @@ const Skills = () => {
         },
         { 
           name: "CSS3", 
-          level: 88, 
+          level: 80, 
           description: "Advanced styling, animations, and responsive design",
           icon: (
             <svg viewBox="0 0 24 24" className="w-8 h-8" fill="currentColor">
@@ -58,7 +58,7 @@ const Skills = () => {
         },
         { 
           name: "Tailwind CSS", 
-          level: 92, 
+          level: 80, 
           description: "Utility-first styling and rapid development",
           icon: <Palette className="w-8 h-8" />,
           color: "text-teal-400"
@@ -72,7 +72,7 @@ const Skills = () => {
       skills: [
         { 
           name: "Node.js", 
-          level: 82, 
+          level: 75, 
           description: "Server-side JavaScript and API development",
           icon: (
             <svg viewBox="0 0 24 24" className="w-8 h-8" fill="currentColor">
@@ -90,7 +90,7 @@ const Skills = () => {
         },
         { 
           name: "RESTful APIs", 
-          level: 85, 
+          level: 70, 
           description: "Designing and implementing REST architecture",
           icon: <Layers className="w-8 h-8" />,
           color: "text-purple-400"
@@ -104,7 +104,7 @@ const Skills = () => {
       skills: [
         { 
           name: "MongoDB", 
-          level: 78, 
+          level: 70, 
           description: "NoSQL database design and operations",
           icon: (
             <svg viewBox="0 0 24 24" className="w-8 h-8" fill="currentColor">
@@ -115,7 +115,7 @@ const Skills = () => {
         },
         { 
           name: "Git & GitHub", 
-          level: 88, 
+          level: 80, 
           description: "Version control and collaborative development",
           icon: <GitBranch className="w-8 h-8" />,
           color: "text-orange-400"
@@ -131,6 +131,7 @@ const Skills = () => {
     }
   ];
 
+  
   // Intersection Observer for animations
   useEffect(() => {
     const observer = new IntersectionObserver(

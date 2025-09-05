@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { User, Download, Mail, MapPin, Calendar, Heart, Code, Coffee, Lightbulb, Target } from 'lucide-react';
+import profileImage from '../assets/profile.jpeg'; 
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -46,7 +47,7 @@ const About = () => {
       content: (
         <div className="space-y-6">
           <p className="text-lg leading-relaxed text-gray-300">
-            Hi, I'm <span className="font-semibold text-blue-400">Cliff</span> 👋 – a passionate 
+            Hi, I'm <span className="font-semibold text-blue-400">Cliff</span> 👋 — a passionate 
             web developer who loves turning ideas into functional and visually 
             appealing digital experiences. My journey into coding started with 
             curiosity about how websites work and has evolved into a deep love for creating 
@@ -56,8 +57,8 @@ const About = () => {
             I've built my expertise around modern technologies like 
             <span className="font-semibold text-blue-400"> React</span> for dynamic frontends,
             <span className="font-semibold text-green-400"> Node.js</span> for robust backends, 
-            and <span className="font-semibold text-emerald-400">MongoDB</span> for efficient data management. 
-            But beyond the tech stack, I'm driven by the impact – whether it's helping businesses 
+            and <span className="font-semibold text-emerald-400"> MongoDB</span> for efficient data management. 
+            But beyond the tech stack, I'm driven by the impact — whether it's helping businesses 
             grow online, building tools that solve real problems, or contributing to projects 
             that benefit my community.
           </p>
@@ -105,7 +106,7 @@ const About = () => {
           </div>
           <div className="space-y-4">
             <p className="text-gray-300">
-              🌍 Based in <span className="text-blue-400">Karuri, Kenya</span> – bringing global perspectives to local solutions
+              🌍 Based in <span className="text-blue-400">Nairobi, Kenya</span> — bringing global perspectives to local solutions
             </p>
             <p className="text-gray-300">
               🚀 Currently exploring <span className="text-purple-400">TypeScript</span> and <span className="text-purple-400">Next.js</span>
@@ -119,16 +120,6 @@ const About = () => {
           </div>
         </div>
       )
-    }
-  };
-
-  const handleSmoothScroll = (targetId) => {
-    const element = document.getElementById(targetId);
-    if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
     }
   };
 
@@ -194,27 +185,6 @@ const About = () => {
               </div>
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mt-8">
-              <button
-                onClick={() => handleSmoothScroll('contact')}
-                className="group flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-blue-500/25"
-              >
-                <Mail size={18} />
-                <span>Let's Connect</span>
-                <div className="group-hover:translate-x-1 transition-transform duration-200">→</div>
-              </button>
-              
-              <a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 px-6 py-3 border-2 border-blue-600 text-blue-400 rounded-xl font-semibold hover:bg-blue-600 hover:text-white transform hover:scale-105 transition-all duration-200"
-              >
-                <Download size={18} />
-                <span>Download CV</span>
-              </a>
-            </div>
           </div>
 
           {/* Right side - Visual Content */}
@@ -223,18 +193,25 @@ const About = () => {
           }`}>
             
             {/* Profile Image */}
-            <div className="relative group max-w-full overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl blur-xl transform group-hover:scale-110 transition-transform duration-300 max-w-full"></div>
-              <div className="relative bg-gray-800 p-4 rounded-2xl shadow-2xl max-w-full overflow-hidden">
-                <img
-                  src="/profile.jpg"
-                  alt="Cliff - Web Developer"
-                  className="w-full rounded-xl shadow-lg transform group-hover:scale-105 transition-transform duration-300 max-w-full h-auto object-cover"
-                />
+            <div className="relative group max-w-full">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl blur-xl transform group-hover:scale-110 transition-transform duration-300"></div>
+              
+              {/* Profile Image Container with margin for floating badge */}
+              <div className="relative bg-gray-800 p-4 rounded-2xl shadow-2xl z-10 mt-4 mr-6">
+                <div className="w-full h-80 rounded-xl shadow-lg transform group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+                  <img 
+                    src={profileImage} 
+                    alt="Cliff - Web Developer" 
+                    className="w-full h-full object-cover object-center"
+                  />
+                </div>
                 
-                {/* Floating badges */}
-                <div className="absolute -top-4 -right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold animate-pulse">
-                  Available for work
+                {/* Floating badge with better positioning - fully visible */}
+                <div className="absolute -top-2 -right-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-xl z-20 animate-bounce">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-300 rounded-full animate-ping"></div>
+                    Available for work
+                  </div>
                 </div>
               </div>
             </div>
@@ -246,7 +223,7 @@ const About = () => {
                   <MapPin size={16} className="text-blue-400 flex-shrink-0" />
                   <span className="text-sm font-medium text-gray-400 truncate">Location</span>
                 </div>
-                <p className="text-white font-semibold text-sm truncate">Karuri, Kenya</p>
+                <p className="text-white font-semibold text-sm truncate">Nairobi, Kenya</p>
               </div>
               
               <div className="p-4 bg-gray-800/50 rounded-xl border border-gray-700/50 min-w-0">
