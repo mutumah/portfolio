@@ -67,7 +67,7 @@ const Contact = () => {
         // Send auto-reply
         emailjs.sendForm(serviceID, autoReplyTemplateID, form.current, publicKey);
 
-        toast.success("Message sent! Check your inbox for confirmation.", {
+        toast.success("Message sent! I will get back to you within the next 24 hours.", {
           duration: 5000,
           style: {
             background: '#10B981',
